@@ -5,7 +5,7 @@
 
 
 int cadastrar() {// Função responsável por fazer o cadastro
-
+    // Inicio das variaveis
 	char opcao[4];
 
  	char arquivo[200];
@@ -99,15 +99,15 @@ int excluir() {// Função responsável por excluir os dados
 	printf("Digite o seu cpf:\n");// Irá imprimir uma mensagem no monitor
 	fgets(cpf, sizeof(cpf), stdin);// Lê os dados digitados pelo usuário
 
-	FILE *file= fopen(cpf, "r");
-	if (file == NULL) {
-		printf("Não foi possivel encontrar o usuário!");
-	}else {
-		remove(cpf);
-		printf("Cadastro excluído com sucesso!");
-		return 0;
+	FILE *file= fopen(cpf, "r");// Abre o arquivo 
+	if (file == NULL) {// Validação caso de erro ao abrir arquivo
+		printf("Não foi possivel encontrar o usuário!");// Imprime uma mensagem no monitor
+	}else {// Validação caso dê certo
+		remove(cpf);// Exclui o cpf
+		printf("Cadastro excluído com sucesso!");// imprime uma mensgame no monitor 
+		return 0;// Termina a função com sucesso
 	}
-    fclose(file);
+    fclose(file);// Fecha o arquivo
 }
 int sair() {// Função responsável por sair do progama
     // Inicio das variáveis
@@ -133,7 +133,8 @@ int main() {
 
 	setlocale(LC_ALL, "portuguese");// Responsável pela alocação de caracteres
 
-
+while(laco == 1){
+	
 	printf("Selecione uma das opções abaixo!\n");
 	printf("\t1 - Cadastrar\n");
 	printf("\t2 - Consultar\n");
